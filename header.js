@@ -42,6 +42,13 @@ function navbarToggle() {
         navLogoTl.timeScale(1.4).reverse();
       }
     });
+
+    $(".navbar_component [data-cta='SignUp'], .navbar_component [data-cta='TalktoSomeone']").on("click", function () {
+      const $btn = $(".navbar_menu-button");
+      if ($btn.hasClass("clicked")) {
+        $btn.click();
+      }
+    });
   
     //Nav Hover
     let navLogoTl = gsap.timeline({
