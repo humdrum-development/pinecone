@@ -874,7 +874,14 @@ window.addEventListener('resize', function () {
 })();
 
 (function initializePieChart() {
+  // Bail if Chart.js hasn't loaded
+  if (typeof Chart === 'undefined') {
+    console.warn('Chart.js not loaded yet — skipping pie chart init.');
+    return;
+  }
+  
   const ctx = document.getElementById('tax-chart');
+  if (!ctx) return; // Element not on this page
 
   new Chart(ctx, {
     type: 'pie',
