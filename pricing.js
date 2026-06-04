@@ -151,15 +151,21 @@ function updatePrices(data, index) {
     index) return;
   const selectedRate = data.hourly_rates.rates[index];
 
-  workerPrice.innerText = `${selectedRate['baserate_(weekday)_pay']}`;
-  nightPrice.innerText = `${selectedRate.night_cost}`;
-  saturdayPrice.innerText = `${selectedRate.saturday_cost}`;
-  eveningPrice.innerText = `${selectedRate.evening_cost}`;
-  sundayPrice.innerText = `${selectedRate.sunday_cost}`;
-  publicPrice.innerText = `${selectedRate.public_holiday_cost}`;
-  travelPrice.innerText = `${data.kms.rate} ${data.kms.units}`;
-  totalPrice.innerText = `${selectedRate['baserate_(weekday)_cost']}`;
-  sleepOver.innerText = `${data.sleepovers.rate} ${data.sleepovers.units}`;
+  // Helper: only set innerText if the element actually exists
+  const setText = (el, value) => {
+    if (el) el.innerText = value;
+    else console.warn('updatePrices: missing target element for value:', value);
+  };
+
+  setText(workerPrice, `${selectedRate['baserate_(weekday)_pay']}`);
+  setText(nightPrice, `${selectedRate.night_cost}`);
+  setText(saturdayPrice, `${selectedRate.saturday_cost}`);
+  setText(eveningPrice, `${selectedRate.evening_cost}`);
+  setText(sundayPrice, `${selectedRate.sunday_cost}`);
+  setText(publicPrice, `${selectedRate.public_holiday_cost}`);
+  setText(travelPrice, `${data.kms.rate} ${data.kms.units}`);
+  setText(totalPrice, `${selectedRate['baserate_(weekday)_cost']}`);
+  setText(sleepOver, `${data.sleepovers.rate} ${data.sleepovers.units}`);
 }
 
 // --- MODIFIED INITIALIZE FUNCTION ---
