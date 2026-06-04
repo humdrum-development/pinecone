@@ -45,8 +45,12 @@ function navbarToggle() {
 
     $(".navbar_component [data-cta='SignUp'], .navbar_component [data-cta='TalktoSomeone']").on("click", function () {
       const $btn = $(".navbar_menu-button");
+
       if ($btn.hasClass("clicked")) {
-        $btn.click();
+        $btn.removeClass("clicked");
+        navbarToggleTl.timeScale(2).reverse();
+        navLogoTl.timeScale(1.4).reverse();
+        console.log("Navbar auto-closed via internal link.");
       }
     });
   
