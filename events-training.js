@@ -90,6 +90,9 @@
       else if (!event.recurring_text) {
         uniqueEvents.set(event.event_id, event);
       }
+      if (event.is_public === "true") {
+        event.location = 'Check the app for more details';
+      }
     });
 
     return Array.from(uniqueEvents.values());
