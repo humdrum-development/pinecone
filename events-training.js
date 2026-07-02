@@ -157,6 +157,7 @@
                           <div>Interested?</div>
                       </div>
                   </a>
+                  <a href="/free-activity-waiver" target="_blank" class="text-size-small" style="margin-top: 8px; display: inline-block;">Free Activity Waiver</a>
               </div>
               <div class="event_image-wrap" style="background-image: url('${imageUrl}')"></div>
           `;
